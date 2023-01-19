@@ -1,0 +1,122 @@
+url: https://test-g.dezerv.in/
+description: dezerv. integration environment.
+k8sNameSpace: integration
+artifacts:
+  config:
+    githubRef: e5c0b0580aa196b8af13c6201d3d788fd509149e
+    githubRepo: dezerv/platform
+    description: "Rebranding changes"
+    updatedBy: sai-dezerv
+    updatedAt: Wed Jan 12 17:30:00 IST 2023
+    helmChartVersion: 0.1.39
+    helmChartName: config
+  app-server:
+    githubRef: 8e4cb69be560fc443fed0c5f0bdf2d871be18e9a
+    githubRepo: dezerv/app-server
+    description: ""
+    updatedBy: rahul-kosamkar
+    updatedAt: Mon Jan 16 12:43:37 UTC 2023
+    ecrImageTag: deployments_integration.8e4cb69be560fc443fed0c5f0bdf2d871be18e9a
+    helmChartVersion: 0.1.30
+    helmChartName: app-server
+  admin-server:
+    githubRef: 8e4cb69be560fc443fed0c5f0bdf2d871be18e9a
+    githubRepo: dezerv/app-server
+    description: ""
+    updatedBy: rahul-kosamkar
+    updatedAt: Mon Jan 16 12:43:37 UTC 2023
+    helmChartVersion: 0.1.26
+    helmChartName: admin-server
+    ecrImageTag: deployments_integration.8e4cb69be560fc443fed0c5f0bdf2d871be18e9a
+  cron-module:
+    githubRef: e2ef33029930869ecbdc02d8eb02dcf03a72fccf
+    githubRepo: dezerv/cron-module
+    description: "Handle decrypt error"
+    updatedBy: pratik-dezerv
+    updatedAt: Wed Jan 11 15:25:16 UTC 2023
+    helmChartVersion: 0.1.23
+    helmChartName: cron-module
+    ecrImageTag: deployments_integration.e2ef33029930869ecbdc02d8eb02dcf03a72fccf
+  transaction-service:
+    ecrImageTag: master.a872f0497c83ea6f5906364eec367c00ded9b28d
+    githubRef: a872f0497c83ea6f5906364eec367c00ded9b28d
+    description: "crash looping fix"
+    updatedBy: melvinodsa
+    githubRepo: dezerv/transactions-service
+    updatedAt: Wed Jan 11 10:39:20 UTC 2023
+    ecrRepository: transaction-service
+    helmChartVersion: 0.1.2
+    helmChartName: transaction-service
+  webapp:
+    githubRef: b0c4a7b591e2a0519d1cbe01023311594e51dd30
+    githubRepo: dezerv/webapp
+    description: "booking call flow"
+    updatedBy: manjithd2
+    updatedAt: Wed Jan 11 08:28:33 UTC 2023
+    envFile: ".env.developmentbackup"
+    nodeVersion: 14.17.4
+    npmBuildCommand: "build-integration"
+    s3BucketName: "test-g.dezerv.in/investment"
+    localBuildPath: "./build"
+    cloudfrontDistributionID: "E3PL1YHVCITWJF"
+    cloudfrontDistributionPath: "/investment/*"
+    ecrImageTag: manjith_feature_inv-1753.b0c4a7b591e2a0519d1cbe01023311594e51dd30
+  gatsby:
+    githubRef: 695e757a87e62e154d235495f53d4a9812ae560f
+    githubRepo: dezerv/dezerv-gatsby-blog
+    description: "Upgrade to gatsby 5"
+    updatedBy: mayanktg
+    updatedAt: Thu Jan 05 08:23:27 UTC 2023
+    envSecretsName: "GATSBY_ENV_VARS_INTEGRATION"
+    nodeVersion: 18.12.1
+    npmBuildCommand: "build"
+    s3BucketName: "test-g.dezerv.in"
+    s3IncludeExcludeFlags: "--include '*' --exclude 'investment/*' --exclude 'bonds/*'"
+    localBuildPath: "./public"
+    cloudfrontDistributionID: "E3PL1YHVCITWJF"
+    cloudfrontDistributionPath: "/*"
+    ecrImageTag: manjith_inv-1704.0eca5bf62aa70901de49cd922d2ce7a85f905108
+  strapi:
+    githubRef: adf8b833e25dd4a54713f7d09d75664dff70b73d
+    githubRepo: dezerv/strapi
+    description: "Webinar and Bonds Collection Pages Added"
+    updatedBy: rahul-kosamkar
+    updatedAt: Fri Jan 13 13:00:00 UTC 2022
+    ecrImageTag: integration.adf8b833e25dd4a54713f7d09d75664dff70b73d
+    ecrRepository: strapi
+    helmChartVersion: 0.1.4
+    helmChartName: strapi
+  seoBonds:
+    githubRef: dcf49b80bb6659261d1d83d5be709a457fa750f6
+    githubRepo: dezerv/seo-frontend-svc
+    description: "Bonds listing pages v2"
+    updatedBy: mayanktg
+    updatedAt: Wed Jan 04 18:28:08 UTC 2023
+    envSecretsName: "SEO_BONDS_ENV_VARS_INTEGRATION"
+    nodeVersion: 18.12.1
+    npmBuildCommand: "build:bonds"
+    s3BucketName: "test-g.dezerv.in/bonds"
+    s3IncludeExcludeFlags: ""
+    localBuildPath: "./public"
+    cloudfrontDistributionID: "E3PL1YHVCITWJF"
+    cloudfrontDistributionPath: "/bonds/*"
+  casparser:
+    githubRef: 76a83f67060ee687e6c459ada39a03568ea4fb8e
+    githubRepo: dezerv/casparser-internal
+    description: "casperser  prometheus test-fix gauge issue"
+    updatedBy: eshaanramnani
+    updatedAt: Thu Jan 12 16:00:06 IST 2023
+    ecrImageTag: omprakash_hotfix_outgoing-request-gauge-metrics.76a83f67060ee687e6c459ada39a03568ea4fb8e
+    ecrRepository: casparser
+    helmChartVersion: 0.0.1
+    helmChartName: casparser
+  analytics-service:
+    githubRef: a4e8d323f5b8a164673a99a48854f0adb90068e4
+    githubRepo: dezerv/dezerv-score-2
+    description: "deploy analytics service"
+    updatedBy: askyashu
+    updatedAt: Fri Jan 13 15:45:06 IST 2023
+    ecrImageTag: develop.a4e8d323f5b8a164673a99a48854f0adb90068e4
+    ecrRepository: analytics-service
+    helmChartVersion: 0.0.1
+    helmChartName: analytics-service
